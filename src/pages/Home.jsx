@@ -7,19 +7,21 @@ import Card from "../components/Card";
 
 
 
+
 const Home = () => {
     const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
    
   `;
-    const [userInfo, setUserInfo] = useState({
-        avatar: "",
-        email: "",
-        first_name: "",
-        id : 0,
-        last_name: "",
-    });
+    // const [userInfo, setUserInfo] = useState({
+    //     avatar: "",
+    //     email: "",
+    //     first_name: "",
+    //     id : 0,
+    //     last_name: "",
+    // });
+    const [userInfo, setUserInfo] = useState([]);
 
 
  
@@ -28,9 +30,10 @@ const Home = () => {
         .get(`https://reqres.in/api/users?page=1&per_page=9`)
         .then((res) => {
             setUserInfo(res.data.data);
+            console.log(res.data.data);
         })
-        .catch((e) => {
-            console.log(e);
+        .catch((err) => {
+            console.error(err);
         });
     }, []);
 
@@ -50,7 +53,7 @@ const Home = () => {
                 )}
             </Container>
            
-            <Link to="/menu">메뉴 페이지로 이동</Link>
+            <Link to="/menu">메뉴 페이지로 고고</Link>
         </>
     );
 };
