@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -24,10 +25,10 @@ const User = () => {
             setUserInfo(res.data.data);
             
         })
-        .catch((err) => {
-            console.error(err);
+        .catch((e) => {
+            console.log(e);
         });
-    }, [userId]);
+    }, []);
 
     
         
